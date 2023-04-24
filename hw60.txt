@@ -1,0 +1,35 @@
+CREATE DATABASE shop;
+USE shop;
+
+CREATE TABLE product (product VARCHAR(30), price SMALLINT, rating DECIMAL(5,2), category VARCHAR(20), brand VARCHAR(20));
+
+ALTER TABLE product ADD id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY;
+
+INSERT INTO product (product, price, rating, category, brand) VALUES('iPhone 9','549','4.69','smartphones', 'Apple');
+INSERT INTO product (product, price, rating, category, brand) VALUES('iPhone X','899','4.44','smartphones', 'Apple');
+INSERT INTO product (product, price, rating, category, brand) VALUES('Samsung Universe 9','1249','4.09','smartphones', 'Samsung');
+INSERT INTO product (product, price, rating, category, brand) VALUES('OPPO F19','280','4.3','smartphones', 'OPPO');
+INSERT INTO product (product, price, rating, category, brand) VALUES('Huawei P30','499','4.09','smartphones', 'Huawei');
+INSERT INTO product (product, price, rating, category, brand) VALUES('MacBook Pro','1149','4.57','laptops', 'Apple');
+INSERT INTO product (product, price, rating, category, brand) VALUES('Samsung Galaxy Book','1499','4.25','laptops', 'Samsung');
+INSERT INTO product (product, price, rating, category, brand) VALUES('Microsoft Surface Laptop 4','1499','4.43','laptops', 'Microsoft Surface');
+INSERT INTO product (product, price, rating, category, brand) VALUES('Infinix INBOOK','1099','4.54','laptops', 'Infinix');
+INSERT INTO product (product, price, rating, category, brand) VALUES('HP Pavilion 15-DK1056WM','1099','4.43','laptops', 'HP Pavilion');
+
+ALTER TABLE product ADD INDEX(product (15));
+ALTER TABLE product ADD INDEX(price);
+ALTER TABLE product ADD INDEX(rating);
+ALTER TABLE product ADD INDEX(category (10));
+ALTER TABLE product ADD INDEX(brand (10));
+
+SELECT * FROM product;
+
+SELECT product, price FROM product WHERE brand="Apple";
+SELECT product FROM product WHERE price<"1000";
+SELECT product FROM product WHERE price BETWEEN 500 AND 1500;
+SELECT product, price, rating FROM product WHERE brand IN ("Apple", 'Samsung', 'Huawei');
+SELECT product, category FROM product WHERE product LIKE "Samsung%"
+
+
+
+
