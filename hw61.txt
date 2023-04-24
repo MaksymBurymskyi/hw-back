@@ -1,0 +1,39 @@
+  Допрацювання таблиці з минулого завдання.
+  Зміна назви стовпця відповідно до наступної презентації:
+ALTER TABLE product CHANGE product title VARCHAR(30);
+
+  Додавання товарів до таблиці товарів:
+INSERT INTO product(title, price, rating, category, brand) VALUES('iPhone 12','1100','4.69','smartphones', 'Apple');
+INSERT INTO product(title, price, rating, category, brand) VALUES('iPhone 11','979','4.69','smartphones', 'Apple');
+INSERT INTO product(title, price, rating, category, brand) VALUES('MacBook Air','1300','4.72','laptops', 'Apple');
+INSERT INTO product(title, price, rating, category, brand) VALUES('iPhone 14','1549','4.69','smartphones', 'Apple');
+INSERT INTO product(title, price, rating, category, brand) VALUES('iPhone 13','1349','4.69','smartphones', 'Apple');
+INSERT INTO product(title, price, rating, category, brand) VALUES('MacBook','950','4.69','laptops', 'Apple');
+
+  Створення таблиці клієнтів:
+CREATE TABLE customer (id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(128), productID MEDIUMINT UNSIGNED);
+
+  Додавання клієнтів до таблиці клієнтів:
+INSERT INTO customer(name, productID) VALUES('Mike','9');
+INSERT INTO customer(name, productID) VALUES('Bob','5');
+INSERT INTO customer(name, productID) VALUES('Nikola','11');
+INSERT INTO customer(name, productID) VALUES('Mike','14');
+INSERT INTO customer(name, productID) VALUES('Nikola','3');
+INSERT INTO customer(name, productID) VALUES('Mike','8');
+INSERT INTO customer(name, productID) VALUES('Mike','9');
+
+
+  Кількість товарів в кожній категорії:
+SELECT category, COUNT(*) AS product_count FROM product GROUP BY category;
+
+  Кількість унікальних брендів для кожної категорії:
+SELECT category, COUNT(DISTINCT brand) AS unique_brands_count FROM product GROUP BY category;
+
+  Кількість покупок, які зробив кожен користувач:
+SELECT name, COUNT(*) AS Quantity FROM customer GROUP BY name;
+
+  Кількість покупок, які зробив кожен користувач з сортуванням від більшої до меншої:
+SELECT name, COUNT(*) AS Quantity FROM customer GROUP BY name ORDER BY Quantity DESC;
+
+  Продані товари та їх ціна з сортуванням:
+SELECT category, title, price FROM customer JOIN product ON customer.productID=product.id ORDER BY category ASC, price DESC;
