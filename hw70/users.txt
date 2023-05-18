@@ -1,0 +1,1 @@
+db.users.insertMany([{"name": "Mike", "age": "25", "status": "I`m learning Angular", "avatar": "https://i.pravatar.cc/150?img=12"}, {"name": "Nikola", "age": "32", "status": "Playing piano", "avatar": "https://i.pravatar.cc/150?img=11"}])
