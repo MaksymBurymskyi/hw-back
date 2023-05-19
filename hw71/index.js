@@ -52,11 +52,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// const readMessage = fs.createReadMessage("./public/message/message.txt");
-// const writeMessage = fs.createWriteMessage("./public/message/message_copy.txt");
-
-// readMessage.on("send_usersChat", () => console.log("save :>> ", save));
-
 const readStream = fs.createReadStream("./public/css/style.css");
 const writeStream = fs.createWriteStream("./public/css/style_copy.css");
 
