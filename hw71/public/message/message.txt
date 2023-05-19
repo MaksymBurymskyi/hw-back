@@ -1,0 +1,1 @@
+{"usersChat":[{"name":"System Bot","msg":"Jose is connected"},{"name":"Bob","msg":"hi, everybody"},{"name":"Jose","msg":"Привіт"},{"name":"System Bot","msg":"Bob is disconnected"}]}
